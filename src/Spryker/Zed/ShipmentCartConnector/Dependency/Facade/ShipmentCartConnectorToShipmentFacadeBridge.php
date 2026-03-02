@@ -25,11 +25,6 @@ class ShipmentCartConnectorToShipmentFacadeBridge implements ShipmentCartConnect
         $this->shipmentFacade = $shipmentFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodsCollectionTransfer
-     */
     public function getAvailableMethodsByShipment(QuoteTransfer $quoteTransfer): ShipmentMethodsCollectionTransfer
     {
         return $this->shipmentFacade->getAvailableMethodsByShipment($quoteTransfer);

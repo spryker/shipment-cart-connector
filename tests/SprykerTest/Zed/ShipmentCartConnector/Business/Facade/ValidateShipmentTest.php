@@ -53,9 +53,6 @@ class ValidateShipmentTest extends Unit
      */
     protected ShipmentCartConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldReturnFalseWhenSelectedShipmentHaveNoPrice(): void
     {
         // Arrange
@@ -76,9 +73,6 @@ class ValidateShipmentTest extends Unit
         $this->assertCount(1, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnFalseWhenSelectedShipmentHaveNoPriceWithItemLevelShipments(): void
     {
         // Arrange
@@ -99,9 +93,6 @@ class ValidateShipmentTest extends Unit
         $this->assertCount(1, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnCorrectValidationErrorMessage(): void
     {
         // Arrange
@@ -130,9 +121,6 @@ class ValidateShipmentTest extends Unit
         ], $messageTransfer->getParameters());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnTrueWhenSelectedShipmentHavePrice(): void
     {
         // Arrange
@@ -152,9 +140,6 @@ class ValidateShipmentTest extends Unit
         $this->assertCount(0, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnTrueWhenSelectedShipmentHavePriceWithItemLevelShipments(): void
     {
         // Arrange

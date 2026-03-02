@@ -44,9 +44,6 @@ class ShipmentCartConnectorBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentCartConnector\Business\Cart\ShipmentCartExpanderInterface
-     */
     public function createShipmentCartExpanderWithMultiShippingAddress(): ShipmentCartExpanderInterface
     {
         return new ShipmentCartExpanderWithMultiShippingAddress(
@@ -67,9 +64,6 @@ class ShipmentCartConnectorBusinessFactory extends AbstractBusinessFactory
         return new ShipmentCartValidator($this->getShipmentFacade(), $this->getPriceFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentCartConnector\Business\Cart\ShipmentCartValidatorInterface
-     */
     public function createShipmentCartValidatorWithMultiShippingAddress(): ShipmentCartValidatorInterface
     {
         return new ShipmentCartValidatorWithMultiShippingAddress(
@@ -95,9 +89,6 @@ class ShipmentCartConnectorBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ShipmentCartConnectorDependencyProvider::FACADE_PRICE);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentCartConnector\Dependency\Service\ShipmentCartConnectorToShipmentServiceInterface
-     */
     public function getShipmentService(): ShipmentCartConnectorToShipmentServiceInterface
     {
         return $this->getProvidedDependency(ShipmentCartConnectorDependencyProvider::SERVICE_SHIPMENT);
@@ -143,17 +134,11 @@ class ShipmentCartConnectorBusinessFactory extends AbstractBusinessFactory
         return new CartValidatorStrategyResolver($strategyContainer);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentCartConnector\Business\Calculator\ShipmentMethodPriceCalculatorInterface
-     */
     public function createSourcePriceCalculator(): ShipmentMethodPriceCalculatorInterface
     {
         return new ShipmentMethodPriceCalculator();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentCartConnector\Business\Sanitizer\ShipmentSanitizerInterface
-     */
     public function createShipmentSanitizer(): ShipmentSanitizerInterface
     {
         return new ShipmentSanitizer();

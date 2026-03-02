@@ -31,9 +31,6 @@ class UpdateShipmentPriceTest extends Unit
      */
     protected ShipmentCartConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldUpdatePriceBasedOnCurrency(): void
     {
         // Arrange
@@ -62,9 +59,6 @@ class UpdateShipmentPriceTest extends Unit
         $this->assertNotSame(-1, $price);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldUpdatePriceBasedOnCurrencyWithItemLevelShipments(): void
     {
         // Arrange
@@ -97,9 +91,6 @@ class UpdateShipmentPriceTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testShouldUpdatePriceWithShipmentMethodSourcePrices(): void
     {
         // Arrange
@@ -126,9 +117,6 @@ class UpdateShipmentPriceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShouldUpdatePriceWithQuoteShipmentMethodSourcePrice(): void
     {
         // Arrange
@@ -155,9 +143,6 @@ class UpdateShipmentPriceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateShouldNotFailWithDifferentExpenseTypes(): void
     {
         // Arrange

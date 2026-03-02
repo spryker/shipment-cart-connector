@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\ShipmentMethodTransfer;
 
 class ShipmentMethodPriceCalculator implements ShipmentMethodPriceCalculatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     public function applySourcePrices(MoneyValueTransfer $moneyValueTransfer, ShipmentMethodTransfer $shipmentMethodTransfer): MoneyValueTransfer
     {
         $sourcePrice = $shipmentMethodTransfer->getSourcePrice();

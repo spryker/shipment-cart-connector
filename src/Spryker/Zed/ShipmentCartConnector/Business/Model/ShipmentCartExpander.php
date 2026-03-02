@@ -37,11 +37,6 @@ class ShipmentCartExpander implements ShipmentCartExpanderInterface
      */
     protected $shipmentMethodPriceCalculator;
 
-    /**
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToPriceFacadeInterface $priceFacade
-     * @param \Spryker\Zed\ShipmentCartConnector\Business\Calculator\ShipmentMethodPriceCalculatorInterface $shipmentMethodPriceCalculator
-     */
     public function __construct(
         ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade,
         ShipmentCartConnectorToPriceFacadeInterface $priceFacade,
@@ -84,11 +79,6 @@ class ShipmentCartExpander implements ShipmentCartExpanderInterface
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isShipmentExpenseUpdateNeeded(QuoteTransfer $quoteTransfer): bool
     {
         if (!$quoteTransfer->getShipment() || !$quoteTransfer->getShipment()->getMethod()) {
@@ -108,12 +98,6 @@ class ShipmentCartExpander implements ShipmentCartExpanderInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return bool
-     */
     protected function isDifferentQuoteShipmentAndExpenseShipmentPrices(QuoteTransfer $quoteTransfer, ShipmentMethodTransfer $shipmentMethodTransfer): bool
     {
         $expenseTransfer = $this->findExpenseByShipment($quoteTransfer);
@@ -125,11 +109,6 @@ class ShipmentCartExpander implements ShipmentCartExpanderInterface
         return $shipmentMethodTransfer->getStoreCurrencyPrice() !== $expenseTransfer->getSumPrice();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ExpenseTransfer|null
-     */
     protected function findExpenseByShipment(QuoteTransfer $quoteTransfer): ?ExpenseTransfer
     {
         $shipmentTransfer = $quoteTransfer->getShipment();

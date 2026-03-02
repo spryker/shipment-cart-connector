@@ -34,10 +34,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
      */
     protected $priceFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToPriceFacadeInterface $priceFacade
-     */
     public function __construct(
         ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade,
         ShipmentCartConnectorToPriceFacadeInterface $priceFacade

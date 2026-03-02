@@ -63,9 +63,6 @@ class ShipmentCartExpanderTest extends Unit
      */
     protected StoreTransfer $storeTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -106,9 +103,6 @@ class ShipmentCartExpanderTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     public function updateShipmentPriceWithoutQuoteLevelShipmentDataProvider(): array
     {
         return [
@@ -148,9 +142,6 @@ class ShipmentCartExpanderTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     public function updateShipmentPriceWithQuoteLevelShipmentDataProvider(): array
     {
         return [
@@ -158,9 +149,6 @@ class ShipmentCartExpanderTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getDataWithoutShipment(): array
     {
         $netPriceAmountEur1 = 10000;
@@ -186,9 +174,6 @@ class ShipmentCartExpanderTest extends Unit
         return [$cartChangeTransfer, $netPriceAmountEur1];
     }
 
-    /**
-     * @return array
-     */
     public function getDataWithQuoteLevelShipmentWhereQuoteCurrencyAndShipmentCurrencyAreSame(): array
     {
         $netPriceAmountEur1 = 10000;
@@ -261,9 +246,6 @@ class ShipmentCartExpanderTest extends Unit
         }
     }
 
-    /**
-     * @return array
-     */
     public function updateShipmentPriceWithItemLevelShipment(): array
     {
         return [
@@ -271,9 +253,6 @@ class ShipmentCartExpanderTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getDataWithItemLevelShipmentAndQuoteCurrencyIsNotSameAsShipmentMethodCurrency(): array
     {
         $netPriceAmountEur1 = 10000;
@@ -359,11 +338,6 @@ class ShipmentCartExpanderTest extends Unit
         return [$cartChangeTransfer, $expectedPrices];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function haveAvailableShipmentMethods(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getQuote()->getExpenses() as $expenseTransfer) {
@@ -388,11 +362,6 @@ class ShipmentCartExpanderTest extends Unit
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return array
-     */
     protected function prepareShipmentMethodPriceListBuilderOptions(ShipmentMethodTransfer $shipmentMethodTransfer): array
     {
         $options = [];

@@ -43,9 +43,6 @@ class ClearShipmentMethodTest extends Unit
      */
     protected ShipmentCartConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldClearItemLevelShipmentOnAddOperation(): void
     {
         // Arrange
@@ -64,9 +61,6 @@ class ClearShipmentMethodTest extends Unit
         $this->assertEmpty($itemTransfer->getShipment()->getMethod());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldClearItemLevelShipmentOnRemoveOperation(): void
     {
         // Arrange
@@ -85,9 +79,6 @@ class ClearShipmentMethodTest extends Unit
         $this->assertEmpty($itemTransfer->getShipment()->getMethod());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldClearShipmentExpenses(): void
     {
         // Arrange
@@ -105,9 +96,6 @@ class ClearShipmentMethodTest extends Unit
         $this->assertEmpty($cartChangeTransfer->getQuote()->getExpenses());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotClearItemLevelShipment(): void
     {
         // Arrange
@@ -125,9 +113,6 @@ class ClearShipmentMethodTest extends Unit
         $this->assertNotEmpty($itemTransfer->getShipment()->getMethod());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldClearQuoteLevelShipment(): void
     {
         // Arrange

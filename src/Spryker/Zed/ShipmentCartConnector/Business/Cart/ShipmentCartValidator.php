@@ -41,11 +41,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
      */
     protected $shipmentService;
 
-    /**
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Facade\ShipmentCartConnectorToPriceFacadeInterface $priceFacade
-     * @param \Spryker\Zed\ShipmentCartConnector\Dependency\Service\ShipmentCartConnectorToShipmentServiceInterface $shipmentService
-     */
     public function __construct(
         ShipmentCartConnectorToShipmentFacadeInterface $shipmentFacade,
         ShipmentCartConnectorToPriceFacadeInterface $priceFacade,
@@ -56,11 +51,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
         $this->shipmentService = $shipmentService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function validateShipment(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartPreCheckResponseTransfer = (new CartPreCheckResponseTransfer())
@@ -113,12 +103,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
         return $cartPreCheckResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodsCollectionTransfer $shipmentMethodsCollection
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer|null
-     */
     protected function findAvailableShipmentMethodsByShipment(
         ShipmentMethodsCollectionTransfer $shipmentMethodsCollection,
         ShipmentTransfer $shipmentTransfer
@@ -133,12 +117,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodsTransfer $availableShipmentMethods
-     * @param int $idShipmentMethod
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
-     */
     protected function findAvailableShipmentMethodByIdShipmentMethod(
         ShipmentMethodsTransfer $availableShipmentMethods,
         int $idShipmentMethod
@@ -152,12 +130,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isCurrencyChanged(ShipmentTransfer $shipmentTransfer, QuoteTransfer $quoteTransfer): bool
     {
         if ($shipmentTransfer->getMethod() === null) {
@@ -172,11 +144,6 @@ class ShipmentCartValidator implements ShipmentCartValidatorInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessage(ShipmentMethodTransfer $shipmentMethodTransfer): MessageTransfer
     {
         return (new MessageTransfer())

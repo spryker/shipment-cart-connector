@@ -33,11 +33,6 @@ class ShipmentSanitizer implements ShipmentSanitizerInterface
      */
     protected const SHIPMENT_EXPENSE_TYPE = 'SHIPMENT_EXPENSE_TYPE';
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function clearShipmentMethod(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         if (
@@ -55,11 +50,6 @@ class ShipmentSanitizer implements ShipmentSanitizerInterface
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function clearItemsShipmentMethod(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getQuote()->getItems() as $itemTransfer) {
@@ -71,11 +61,6 @@ class ShipmentSanitizer implements ShipmentSanitizerInterface
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function clearShipmentExpenses(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         $expenseTransfers = new ArrayObject();

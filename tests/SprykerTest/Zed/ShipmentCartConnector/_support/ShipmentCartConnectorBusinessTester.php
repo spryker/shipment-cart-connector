@@ -70,12 +70,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
      */
     protected const SHIPMENT_EXPENSE_TYPE = 'SHIPMENT_EXPENSE_TYPE';
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartCartChangeTransfer(ShipmentMethodTransfer $shipmentMethodTransfer, StoreTransfer $storeTransfer): CartChangeTransfer
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -90,12 +84,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
         return (new CartChangeBuilder())->build()->setQuote($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithItemLevelShipments(
         ShipmentMethodTransfer $shipmentMethodTransfer,
         StoreTransfer $storeTransfer
@@ -118,12 +106,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
         return (new CartChangeBuilder())->withQuote($quoteTransfer->toArray())->build();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithQuoteLevelShipment(
         ShipmentMethodTransfer $shipmentMethodTransfer,
         StoreTransfer $storeTransfer
@@ -146,12 +128,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
         return (new CartChangeBuilder())->withQuote($quoteTransfer->toArray())->build();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithDifferentExpenseTypes(
         ShipmentMethodTransfer $shipmentMethodTransfer,
         StoreTransfer $storeTransfer
@@ -175,11 +151,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
         return (new CartChangeBuilder())->withQuote($quoteTransfer->toArray())->build();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function createShipmentTransfer(ShipmentMethodTransfer $shipmentMethodTransfer): ShipmentTransfer
     {
         return (new ShipmentBuilder())
@@ -187,11 +158,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
             ->setMethod($shipmentMethodTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return \Generated\Shared\Transfer\ExpenseTransfer
-     */
     protected function createExpenseTransfer(ShipmentTransfer $shipmentTransfer): ExpenseTransfer
     {
         return (new ExpenseBuilder())
@@ -200,11 +166,6 @@ class ShipmentCartConnectorBusinessTester extends Actor
             ->setShipment($shipmentTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function removeItemLevelShipments(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
